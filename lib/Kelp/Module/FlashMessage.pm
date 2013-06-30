@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Kelp::Module::FlashMessage;
 {
-  $Kelp::Module::FlashMessage::VERSION = '0.01';
+  $Kelp::Module::FlashMessage::VERSION = '0.02';
 }
 
 use parent 'Kelp::Module';
@@ -38,7 +38,7 @@ __END__
 
 =head1 NAME
 
-Kelp::Module::FlashMessage
+Kelp::Module::FlashMessage - flash message support
 
 =head1 VERSION
 
@@ -46,54 +46,49 @@ version 0.01
 
 =head1 SYNOPSIS
 
-First ...
+Module configuration:
 
     # conf/config.pl
     {
         modules      => ['FlashMessage'],
         modules_init => {
             'FlashMessage' => {
-           		 key => 'flash_custom_key' # optional
-        		},
+               key => 'flash_custom_key' 
+               # optional key name, the default is 'km::flash'
+            },
         }
     }
 
-Then ...
+Usage (from a route)
 
-    package MyApp;
-    use Kelp::Base 'Kelp';
+   package MyApp;
+   use Kelp::Base 'Kelp';
 
-    sub some_route {
-        my $self = shift;
-        $self->flash_message('my flash message' );
-        return $self->template('my_template', {
- 				   'fmp'  => sub { $self->flash_message_present },
- 				   'fm'   => sub { $self->flash_message }
- 				});	
-    }
+   sub some_route {
+      my $self = shift;
+      $self->flash_message('my flash message' );
+      return $self->template('my_template', {
+               'fmp' => sub { $self->flash_message_present },
+               'fm'  => sub { $self->flash_message }
+             });	
+   }
 
-And finally, the template (Text::Xslate example):
+And finally, the template that consumes the flash message (Text::Xslate example):
 
-		: if $fmp()  {
-		Message: <: $fm() :>
-		: }
+   : if $fmp()  {
+   Message: <: $fm() :>
+   : }
 
-		: if $fmp()  {
-		Message (should you see it? - no!): <: $fm() :>
-		: }
-
-=head1 NAME
-
-Kelp::Module::FlashMessage - flash message support
-
-=head1 VERSION
-
-version 0.01
+   : if $fmp()  {
+   Message (should you see this? - no!)
+   There isn't flash message after you consume it
+   : }
 
 =head1 REQUERIMENTS
 
 It needs the Plack::Middleware::Session to work properly. See the adding
 middleware section in the main Kelp documentation.
+
 
 =head1 REGISTERED METHODS
 
@@ -113,6 +108,7 @@ is present. It may be called many times without clear the message
 
 =back
 
+
 =head1 AUTHOR
 
 Miguel Prz, <niceperl at gmail.com>
@@ -128,6 +124,7 @@ I will be notified, and then you'll automatically be notified of progress on you
 You can find documentation for this module with the perldoc command.
 
     perldoc Kelp::Module::FlashMessage
+
 
 You can also look for information at:
 
@@ -151,6 +148,7 @@ L<http://search.cpan.org/dist/Kelp-Module-FlashMessage/>
 
 =back
 
+
 =head1 ACKNOWLEDGEMENTS
 
 To Stefan Geneshky, the creator of great Kelp web framework
@@ -162,16 +160,5 @@ under the terms of either: the GNU General Public License as published
 by the Free Software Foundation; or the Artistic License.
 
 See http://dev.perl.org/licenses/ for more information.
-
-=head1 AUTHOR
-
-Miguel Prz <niceperl@gmail.com>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2013 by Miguel Prz.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
 
 =cut
