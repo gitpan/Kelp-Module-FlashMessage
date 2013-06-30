@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST
+META.yml
+Makefile.PL
+README
+dist.ini
+lib/Kelp/Module/FlashMessage.pm
+t/00_basic.t
+t/conf/config.pl
