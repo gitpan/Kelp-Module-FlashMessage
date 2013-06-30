@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Kelp::Module::FlashMessage;
 {
-  $Kelp::Module::FlashMessage::VERSION = '0.02';
+  $Kelp::Module::FlashMessage::VERSION = '0.03';
 }
 
 use parent 'Kelp::Module';
@@ -38,7 +38,7 @@ __END__
 
 =head1 NAME
 
-Kelp::Module::FlashMessage - flash message support
+Kelp::Module::FlashMessage - Kelp flash message support
 
 =head1 VERSION
 
@@ -54,7 +54,8 @@ Module configuration:
         modules_init => {
             'FlashMessage' => {
                key => 'flash_custom_key' 
-               # optional key name, the default is 'km::flash'
+               # optional custom key name, the default is 'km::flash'
+               # it will be used to store the flash message into the session
             },
         }
     }
@@ -84,7 +85,7 @@ And finally, the template that consumes the flash message (Text::Xslate example)
    There isn't flash message after you consume it
    : }
 
-=head1 REQUERIMENTS
+=head1 REQUIREMENTS
 
 It needs the Plack::Middleware::Session to work properly. See the adding
 middleware section in the main Kelp documentation.
@@ -115,8 +116,8 @@ Miguel Prz, <niceperl at gmail.com>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-sql-template at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=SQL-Template>. 
+Please report any bugs or feature requests through
+the web interface at L<https://rt.cpan.org/Public/Dist/Display.html?Name=Kelp-Module-FlashMessage>. 
 I will be notified, and then you'll automatically be notified of progress on your bug as I make changes.
 
 =head1 SUPPORT

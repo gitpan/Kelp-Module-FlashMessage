@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "flash message support",
+  "ABSTRACT" => "Kelp flash message support",
   "AUTHOR" => "Miguel Prz <niceperl\@gmail.com>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
@@ -36,7 +36,7 @@ my %WriteMakefileArgs = (
     "Kelp::Test" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.02",
+  "VERSION" => "0.03",
   "test" => {
     "TESTS" => "t/*.t"
   }

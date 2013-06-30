@@ -1,5 +1,9 @@
 Revision history for Kelp::Module::FlashMessage
 
+0.03   2013-06-30
+       * Improved tests
+       * Some minor bugs in the documentation
+       
 0.02   2013-06-30
        * Improved documentation
        * Include the Changes file
