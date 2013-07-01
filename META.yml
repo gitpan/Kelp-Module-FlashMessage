@@ -26,4 +26,8 @@ requires:
   parent: 0
   strict: 0
   warnings: 0
-version: 0.03
+resources:
+  bugtracker: https://github.com/niceperl/Kelp-Module-FlashMessage/issues
+  homepage: https://github.com/niceperl/Kelp-Module-FlashMessage
+  repository: https://github.com/niceperl/Kelp-Module-FlashMessage
+version: 0.04
